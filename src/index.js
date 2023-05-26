@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from 'components/GlobalStyle';
+import App from 'components/App';
 import './index.css';
+
+const theme = {
+  colors: {
+    statListMainBgColor: '#e6ebf0',
+    statListEvenBgColor: '#F3F6F5',
+  },
+};
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
