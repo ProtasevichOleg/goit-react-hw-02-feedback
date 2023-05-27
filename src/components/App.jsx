@@ -29,36 +29,32 @@ class App extends React.Component {
     return total === 0 ? 0 : Math.round((good / total) * 100);
   };
 
-  renderStatistics = () => {
+  render() {
     const { good, neutral, bad } = this.state;
     const totalFeedback = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
-
-    return totalFeedback === 0 ? (
-      <Notification message="There is no feedback" />
-    ) : (
-      <Statistics
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        total={totalFeedback}
-        positivePercentage={positivePercentage}
-      />
-    );
-  };
-
-  render() {
-    const options = ['good', 'neutral', 'bad'];
 
     return (
       <Layout>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={options}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>
-        <Section title="Statistics">{this.renderStatistics()}</Section>
+        <Section title="Statistics">
+          {totalFeedback === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={totalFeedback}
+              positivePercentage={positivePercentage}
+            />
+          )}
+        </Section>
       </Layout>
     );
   }
