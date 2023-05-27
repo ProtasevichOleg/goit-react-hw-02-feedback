@@ -9,7 +9,7 @@ export const FeedbackButtonSet = styled.div`
 `;
 
 export const FeedbackButton = styled.button`
-  width: 100px;
+  width: 150px;
   height: 30px;
   position: relative;
   border: 1px solid;
