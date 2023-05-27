@@ -28,13 +28,15 @@ const getValueColor = (label, value) => {
   }
 };
 
-export const StatList = styled.ul``;
+export const StatList = styled.ul`
+  width: 300px;
+`;
 
 export const StatItem = styled.li`
   display: flex;
   align-items: center;
   height: 30px;
-  width: 250px;
+  width: 100%;
   padding-left: 20px;
   background-color: ${props => props.theme.colors.statListMainBgColor};
   :nth-child(even) {
